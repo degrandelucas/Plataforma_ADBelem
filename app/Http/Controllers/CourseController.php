@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\View\View; // Import the View class
 
 class CourseController extends Controller
 {
@@ -12,7 +13,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::where('is_published', true)->get();
+
+        return view('courses.index', compact('courses'));
     }
 
     /**
@@ -34,9 +37,11 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Course $course)
+    public function show(Course $course): View
     {
-        //
+        $course->load('modules');
+
+        return view('courses.show', compact('course'));
     }
 
     /**
