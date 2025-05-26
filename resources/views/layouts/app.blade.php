@@ -8,29 +8,49 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+    <body class="#fafafa grey lighten-5"> {{-- Classe base do Materialize para fundo cinza claro --}}
+        {{-- Navbar do Materialize --}}
+        <nav class="deep-purple darken-1"> {{-- Cor da Navbar --}}
+            <div class="nav-wrapper container">
+                <a href="{{ url('/') }}" class="brand-logo">AD Belém Cursos</a> {{-- Logo/Nome do Site --}}
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                {{-- Ícone de Hamburguer para Mobile (sidenav-trigger) --}}
+                {{-- O 'data-target' deve corresponder ao 'id' do <ul> do sidenav abaixo --}}
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+                {{-- Links do Menu para Desktop (escondidos em telas pequenas) --}}
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url('/courses') }}">Cursos</a></li>
+                    <li><a href="{{ url('/contact') }}">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        {{-- Menu Lateral para Mobile (Sidenav) --}}
+        {{-- O 'id' deve corresponder ao 'data-target' do sidenav-trigger acima --}}
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url('/courses') }}">Cursos</a></li>
+            <li><a href="{{ url('/contact') }}">Contato</a></li>
+        </ul>
+
+        <div class="container"> {{-- Container principal do Materialize para centralizar o conteúdo --}}
+            @yield('content') {{-- Aqui o conteúdo específico de cada página será injetado --}}
         </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            // Script para inicializar componentes do Materialize (ex: dropdowns, modais, etc.)
+            document.addEventListener('DOMContentLoaded', function() {
+                M.AutoInit();
+            });
+        </script>
     </body>
 </html>
