@@ -29,3 +29,19 @@
     color: #004D40 !important;
 }
 
+.nav-wrapper img {
+    width: 4.4rem;
+    height: 4.4rem;
+    margin-left: 1rem;
+}
+
+footer img {
+    width: 1.5rem;
+    padding-right: 0.1rem;
+    margin-bottom: -0.4rem;
+}
+
+footer {
+    margin-top: 5rem;
+}
+
