@@ -4,16 +4,25 @@
         <title>Lista de Cursos</title>
     </head>
     <body>
-        <h1>Todos os Cursos Publicados</h1>
+    <h1>Todos os Cursos Publicados</h1>
 
-        <p>Conteúdo da lista de cursos...</p>
-
-        @if(isset($courses))
-            <p>A variável $courses está disponível na view!</p>
-            {{-- {{ dd($courses) }} --}} {{-- Use this to see the contents of the variable during development --}}
-        @else
-            <p>A variável $courses NÃO está disponível.</p>
-        @endif
+    {{-- Verifica se a variável $courses existe e não está vazia --}}
+    @if(isset($courses) && $courses->count() > 0)
+        <h2>Cursos:</h2>
+        <ul>
+            {{-- Itera sobre cada curso na coleção $courses --}}
+            @foreach($courses as $course)
+                <li>
+                    {{-- Exibe o nome do curso --}}
+                    {{ $course->name }}
+                    {{-- Futuramente, aqui colocaremos um link para a página de detalhes do curso --}}
+                </li>
+            @endforeach
+        </ul>
+    @else
+        {{-- Mensagem se não houver cursos publicados --}}
+        <p>Não há cursos publicados no momento.</p>
+    @endif
 
     </body>
 </html>
