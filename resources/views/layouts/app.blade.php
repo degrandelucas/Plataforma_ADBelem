@@ -17,22 +17,24 @@
     </head>
 
     <body class="#fafafa grey lighten-5"> {{-- Classe base do Materialize para fundo cinza claro --}}
+        <div class="navbar-fixed">
         {{-- Navbar do Materialize --}}
-        <nav class="deep-purple darken-1"> {{-- Cor da Navbar --}}
-            <div class="nav-wrapper container">
-                <a href="{{ url('/') }}" class="brand-logo">AD Belém Cursos</a> {{-- Logo/Nome do Site --}}
+            <nav class="#283593 indigo darken-3"> {{-- Cor da Navbar --}}
+                <div class="nav-wrapper">
+                    <a href="{{ url('/') }}" class="brand-logo">AD Belém Cursos</a> {{-- Logo/Nome do Site --}}
 
-                {{-- Ícone de Hamburguer para Mobile (sidenav-trigger) --}}
-                {{-- O 'data-target' deve corresponder ao 'id' do <ul> do sidenav abaixo --}}
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    {{-- Ícone de Hamburguer para Mobile (sidenav-trigger) --}}
+                    {{-- O 'data-target' deve corresponder ao 'id' do <ul> do sidenav abaixo --}}
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-                {{-- Links do Menu para Desktop (escondidos em telas pequenas) --}}
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url('/courses') }}">Cursos</a></li>
-                    <li><a href="{{ url('/contact') }}">Contato</a></li>
-                </ul>
-            </div>
-        </nav>
+                    {{-- Links do Menu para Desktop (escondidos em telas pequenas) --}}
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="{{ url('/courses') }}">Cursos</a></li>
+                        <li><a href="{{ url('/contact') }}">Contato</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
         {{-- Menu Lateral para Mobile (Sidenav) --}}
         {{-- O 'id' deve corresponder ao 'data-target' do sidenav-trigger acima --}}
