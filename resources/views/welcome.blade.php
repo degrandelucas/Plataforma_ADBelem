@@ -6,9 +6,10 @@
         <div class="section no-pad-bot">
             <div class="container center-align">
                 <br><br>
-                <h1 class="header center white-text text-lighten-5">Instituto Bíblico do Circuito das Águas</h1>
+                <h1 class="header center #82b1ff blue accent-1">Instituto Bíblico do Circuito das Águas</h1>
                 <div class="row center">
-                    <h5 class="header-text col s12 light white-text">Capacitando líderes e servos para o Reino de Deus.</h5>
+                    <h5 class="header-text col s12 #e0f7fa cyan lighten-5
+">Capacitando líderes e servos para o Reino de Deus.</h5>
                 </div>
                 <div class="row center">
                     <a href="{{ route('courses.index') }}" id="download-button" class="btn-large waves-effect waves-light indigo lighten-1">Explore Nossos Cursos</a>
