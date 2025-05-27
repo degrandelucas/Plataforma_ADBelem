@@ -10,6 +10,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', [PageController::class, 'about'])->name('pages.about');
+
+require __DIR__.'/auth.php';
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 
@@ -23,9 +27,3 @@ Route::middleware('auth')->group(function () {
     Route::resource('courses', CourseController::class);
     Route::resource('courses.modules', ModuleController::class);
 });
-//
-
-Route::get('/about', [PageController::class, 'about'])->name('pages.about');
-
-
-require __DIR__.'/auth.php';
