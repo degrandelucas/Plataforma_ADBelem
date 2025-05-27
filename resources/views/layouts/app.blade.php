@@ -7,40 +7,62 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/utilities.js'])
+        @vite(['resources/js/app.js', 'resources/js/utilities.js', 'resources/css/app.css'])
     </head>
 
-    <body class="#fafafa grey lighten-5"> {{-- Classe base do Materialize para fundo cinza claro --}}
+    <body class="grey lighten-5">
+
         <div class="navbar-fixed">
-        {{-- Navbar do Materialize --}}
-            <nav class="indigo darken-3"> {{-- Cor da Navbar --}}
+            <nav class="indigo darken-3">
                 <div class="nav-wrapper">
-                    <a href="{{ url('/courses') }}" class="brand-logo hide-on-med-and-down"><img src="{{ asset('img/logo-curso.svg') }}" alt="logo-curso"></a> {{-- Logo/Nome do Site --}}
-
-                    {{-- Ícone de Hamburguer para Mobile (sidenav-trigger) --}}
-                    {{-- O 'data-target' deve corresponder ao 'id' do <ul> do sidenav abaixo --}}
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-                    {{-- Links do Menu para Desktop (escondidos em telas pequenas) --}}
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="{{ url('/courses') }}">Cursos</a></li>
-                        <li><a href="{{ url('#contact') }}">Contato</a></li>
-                    </ul>
+                    {{-- Inclui a navegação dinâmica --}}
+                    @include('layouts.navigation')
                 </div>
             </nav>
         </div>
 
+        {{-- O Dropdown e Sidenav devem estar fora da nav-fixed e antes da </body> para serem inicializados corretamente --}}
+        @auth
+            <ul id="userDropdown" class="dropdown-content">
+                <li><a href="{{ route('profile.edit') }}" class="indigo-text text-darken-3">Perfil</a></li>
+                <li class="divider"></li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="indigo-text text-darken-3">Sair</a>
+                    </form>
+                </li>
+            </ul>
+        @endauth
+
         {{-- Menu Lateral para Mobile (Sidenav) --}}
-        {{-- O 'id' deve corresponder ao 'data-target' do sidenav-trigger acima --}}
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="{{ url('/courses') }}">Cursos</a></li>
-            <li><a href="{{ url('#contact') }}">Contato</a></li>
+            {{-- Links Visíveis para Todos --}}
+            <li><a href="{{ url('/courses') }}" class="indigo-text text-darken-3">Cursos</a></li>
+            <li><a href="{{ url('#contact') }}" class="indigo-text text-darken-3">Contato</a></li>
+
+            @guest
+                <li class="divider"></li>
+                <li><a href="{{ route('login') }}" class="indigo-text text-darken-3">Login</a></li>
+                <li><a href="{{ route('register') }}" class="indigo-text text-darken-3">Registro</a></li>
+            @endguest
+
+            @auth
+                <li class="divider"></li>
+                <li><a href="{{ route('dashboard') }}" class="indigo-text text-darken-3">Dashboard</a></li>
+                <li><a href="{{ route('profile.edit') }}" class="indigo-text text-darken-3">Perfil ({{ Auth::user()->name }})</a></li>
+                <li class="divider"></li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="indigo-text text-darken-3">Sair</a>
+                    </form>
+                </li>
+            @endauth
         </ul>
 
         <div class="container"> {{-- Container principal do Materialize para centralizar o conteúdo --}}
@@ -77,7 +99,7 @@
             </div>
             <div class="indigo darken-4"> {{-- Cor mais escura para a seção de copyright --}}
                 <div class="container">
-                    <p>Copyright &copy<span id="year-copyright"></span> Igreja Evangélica Assembleia de Deus Ministério do Belém</p>
+                    <p>Copyright ©<span id="year-copyright"></span> Igreja Evangélica Assembleia de Deus Ministério do Belém</p>
                 </div>
             </div>
         </footer>
@@ -89,5 +111,7 @@
                 M.AutoInit();
             });
         </script>
+        {{-- Onde os scripts dos componentes (dropdown, sidenav) serão empilhados --}}
+        @stack('scripts')
     </body>
 </html>

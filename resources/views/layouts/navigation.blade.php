@@ -1,48 +1,32 @@
-{{-- resources/views/layouts/navigation.blade.php (Convertido para Materialize CSS) --}}
+{{-- Logo/Nome do Site (dentro do nav-wrapper) --}}
+<a href="{{ url('/') }}" class="brand-logo hide-on-med-and-down">
+    <img src="{{ asset('img/logo-curso.svg') }}" alt="logo-curso">
+</a>
 
-<nav class="indigo darken-3">
-    <div class="nav-wrapper container">
-        <a href="{{ route('dashboard') }}" class="brand-logo">{{ config('app.name', 'Laravel') }}</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+{{-- Ícone de Hamburguer para Mobile (sidenav-trigger) --}}
+<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-        <ul class="right hide-on-med-and-down">
-            <li><a href="{{ route('dashboard') }}" @if(request()->routeIs('dashboard')) class="active" @endif>Dashboard</a></li>
+{{-- Links do Menu para Desktop (escondidos em telas pequenas) --}}
+<ul class="right hide-on-med-and-down">
+    {{-- Links Visíveis para TODOS --}}
+    <li><a href="{{ url('/cursos') }}">Cursos</a></li>
+    <li><a href="{{ url('/#contact') }}">Contato</a></li>
 
-            {{-- Dropdown para o usuário logado --}}
-            <li>
-                <a class="dropdown-trigger" href="#!" data-target="userDropdown">
-                    {{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+    @guest {{-- Se o usuário NÃO estiver logado --}}
+        <li><a href="{{ route('login') }}">Login</a></li>
+        <li><a href="{{ route('register') }}">Registro</a></li>
+    @endguest
 
-{{-- Estrutura do Dropdown (deve estar fora da nav, geralmente no final do body ou antes do script Materialize) --}}
-<ul id="userDropdown" class="dropdown-content">
-    <li><a href="{{ route('profile.edit') }}" class="indigo-text text-darken-3">Perfil</a></li>
-    <li class="divider"></li>
-    <li>
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="indigo-text text-darken-3">Sair</a>
-        </form>
-    </li>
-</ul>
+    @auth {{-- Se o usuário ESTIVER logado --}}
+        <li><a href="{{ route('dashboard') }}" @if(request()->routeIs('dashboard')) class="active" @endif>Dashboard</a></li>
 
-{{-- Sidenav para Mobile --}}
-<ul class="sidenav" id="mobile-demo">
-    <li><a href="{{ route('dashboard') }}" class="indigo-text text-darken-3">Dashboard</a></li>
-    <li class="divider"></li>
-    <li>
-        <a href="{{ route('profile.edit') }}" class="indigo-text text-darken-3">Perfil ({{ Auth::user()->name }})</a>
-    </li>
-    <li>
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="indigo-text text-darken-3">Sair</a>
-        </form>
-    </li>
+        {{-- Dropdown para o usuário logado --}}
+        <li>
+            <a class="dropdown-trigger" href="#!" data-target="userDropdown">
+                {{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i>
+            </a>
+        </li>
+    @endauth
 </ul>
 
 {{-- Script para inicializar Materialize Components (dropdown e sidenav) --}}
@@ -52,7 +36,7 @@
             // Inicializa o Dropdown
             var dropdownElems = document.querySelectorAll('.dropdown-trigger');
             M.Dropdown.init(dropdownElems, {
-                constrainWidth: false // Opcional: para o dropdown não ser limitado pela largura do gatilho
+                constrainWidth: false
             });
 
             // Inicializa o Sidenav
