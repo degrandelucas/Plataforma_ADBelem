@@ -19,11 +19,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('courses', CourseController::class);
+    Route::resource('courses.modules', ModuleController::class);
 });
 //
-Route::resource('courses', CourseController::class);
-
-Route::resource('courses.modules', ModuleController::class);
 
 Route::get('/about', [PageController::class, 'about'])->name('pages.about');
 

@@ -8,7 +8,7 @@
             <div class="col s12 m12 l12">
                 <div class="card-content">
                     <div class="card-content">
-                        <img src="{{ url('https://www.adbelemamparo.com.br/static/media/adbelem.7a70568077496464084a.png') }}" alt="Igreja Assembleia de Deus Ministério do Belém" class="materialboxed responsive-img" width="580">
+                        <img src="{{ url('https://www.adbelemamparo.com.br/static/media/adbelem.7a70568077496464084a.png') }}" alt="Igreja Assembleia de Deus Ministério do Belém" class="materialboxed responsive-img" width="200">
                         <span class="card-title">AD Belem Amparo/SP</span>
                     </div>
                     <div style="text-align: justify">
