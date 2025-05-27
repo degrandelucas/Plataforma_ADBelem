@@ -1,5 +1,5 @@
 {{-- Logo/Nome do Site (dentro do nav-wrapper) --}}
-<a href="{{ url('/') }}" class="brand-logo hide-on-med-and-down">
+<a href="{{ url('/courses') }}" class="brand-logo hide-on-med-and-down">
     <img src="{{ asset('img/logo-curso.svg') }}" alt="logo-curso">
 </a>
 
@@ -9,8 +9,8 @@
 {{-- Links do Menu para Desktop (escondidos em telas pequenas) --}}
 <ul class="right hide-on-med-and-down">
     {{-- Links Visíveis para TODOS --}}
-    <li><a href="{{ url('/cursos') }}">Cursos</a></li>
-    <li><a href="{{ url('/#contact') }}">Contato</a></li>
+    <li><a href="{{ route('courses.index') }}">Cursos</a></li>
+    <li><a href="{{ route('pages.about') }}">Sobre</a></li>
 
     @guest {{-- Se o usuário NÃO estiver logado --}}
         <li><a href="{{ route('login') }}">Login</a></li>

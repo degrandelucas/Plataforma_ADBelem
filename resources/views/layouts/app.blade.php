@@ -42,8 +42,8 @@
         {{-- Menu Lateral para Mobile (Sidenav) --}}
         <ul class="sidenav" id="mobile-demo">
             {{-- Links Visíveis para Todos --}}
-            <li><a href="{{ url('/courses') }}" class="indigo-text text-darken-3">Cursos</a></li>
-            <li><a href="{{ url('#contact') }}" class="indigo-text text-darken-3">Contato</a></li>
+            <li><a href="{{ route('courses.index') }}">Cursos</a></li>
+            <li><a href="{{ route('pages.about') }}">Sobre</a></li>
 
             @guest
                 <li class="divider"></li>
