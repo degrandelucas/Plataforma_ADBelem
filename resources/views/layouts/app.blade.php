@@ -42,8 +42,8 @@
         {{-- Menu Lateral para Mobile (Sidenav) --}}
         <ul class="sidenav" id="mobile-demo">
             {{-- Links Visíveis para Todos --}}
-            <li><a href="{{ route('courses.index') }}">Cursos</a></li>
-            <li><a href="{{ route('pages.about') }}">Sobre</a></li>
+            <li><a href="{{ route('courses.index') }}" class="indigo-text text-darken-3">Cursos</a></li>
+            <li><a href="{{ route('pages.about') }}" class="indigo-text text-darken-3">Sobre</a></li>
 
             @guest
                 <li class="divider"></li>
@@ -69,7 +69,7 @@
             @yield('content') {{-- Aqui o conteúdo específico de cada página será injetado --}}
         </div>
 
-        <footer id="contact" class="page-footer indigo darken-3"> {{-- Ex: cor cinza escura para o rodapé --}}
+        <footer id="contact" class="page-footer indigo darken-3">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12 rodape-about-us">
