@@ -40,10 +40,13 @@
                 <div class="card-panel orange lighten-2 white-text">Este curso ainda não possui módulos.</div>
             @endif
 
-            <br>
+            <div>
             <a href="{{ url('/courses') }}" class="waves-effect waves-light btn #004d40 teal darken-4"><i class="material-icons left">arrow_back</i>Voltar para a lista de cursos</a>
+            </div>
+            <br>
         @else
             <div class="card-panel red lighten-1 white-text">Curso não encontrado.</div>
+            <br>
         @endif
         @endsection
     </body>
