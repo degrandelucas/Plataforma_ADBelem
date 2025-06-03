@@ -69,36 +69,9 @@
             @yield('content') {{-- Aqui o conteúdo específico de cada página será injetado --}}
         </div>
 
-        <footer id="contact" class="page-footer indigo darken-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12 rodape-about-us">
-                        <h5 class="white-text">Sobre Nós</h5>
-                        <p class="grey-text text-lighten-3">O Instituto Bíblico do Circuito das Águas, fundado no ano 2000,  é uma escola teológica mantida pela Igreja Evangélica Assembleia de Deus Ministério do Belém - Campo do Circuito das Águas- com sua sede em Amparo/SP</p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <div class="l4 offset-l2 s12">
-                            <h5 class="white-text">Links Úteis</h5>
-                            <ul class="col">
-                                <li class="row">
-                                    <a class="grey-text text-lighten-3" href="https://g.co/kgs/g1Ye1uD" target="_blank"><img class="image-footer add_to_queue" src="https://www.svgrepo.com/show/513552/location-pin.svg" alt="Localização">Localização em Amparo/SP
-                                    </a>
-                                </li>
-                                <li class="row">
-                                    <a class="grey-text text-lighten-3" href="https://www.youtube.com/adbelemamparooficial" target="_blank"><img class="image-footer" src="https://www.svgrepo.com/show/475700/youtube-color.svg" alt="Canal-Youtube">Youtube Oficial
-                                    </a>
-                                </li>
-                                <li class="row">
-                                    <a class="grey-text text-lighten-3" href="https://www.facebook.com/adbelemamparo" target="_blank"><img class="image-footer" src="https://www.svgrepo.com/show/475647/facebook-color.svg" alt="Pagina-Facebook">Facebook Oficial
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="indigo darken-4"> {{-- Cor mais escura para a seção de copyright --}}
-                <div class="container">
+        <footer>
+            <div class="indigo darken-3 white-text"> {{-- Cor mais escura para a seção de copyright --}}
+                <div class="">
                     <p>Copyright ©<span id="year-copyright"></span> Igreja Evangélica Assembleia de Deus Ministério do Belém</p>
                 </div>
             </div>
