@@ -4,4 +4,6 @@ function updateYearCopyright(idYearCopyright) {
     yearCopyright.textContent = currentYear;
 }
 
-updateYearCopyright('year-copyright');
+document.addEventListener('DOMContentLoaded', function() {
+    updateYearCopyright('year-copyright');
+});
