@@ -33,6 +33,9 @@
                             @if($module->video_url)
                                 <p>Link do Vídeo: <a href="{{ $module->video_url }}" target="_blank">Assistir Vídeo</a></p>
                             @endif
+                            @if($module->link_prova)
+                                <p>Link da Prova: <a href="{{ $module->link_prova }}" target="_blank">Fazer Prova</a></p>
+                            @endif
                         </div>
                     @endforeach
                 </div>
@@ -41,7 +44,7 @@
             @endif
 
             <div>
-            <a href="{{ url('/courses') }}" class="waves-effect waves-light btn #004d40 teal darken-4"><i class="material-icons left">arrow_back</i>Voltar para a lista de cursos</a>
+                <a href="{{ url('/courses') }}" class="waves-effect waves-light btn #004d40 teal darken-4"><i class="material-icons left">arrow_back</i>Voltar para a lista de cursos</a>
             </div>
             <br>
         @else

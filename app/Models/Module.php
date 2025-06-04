@@ -17,6 +17,7 @@ class Module extends Model
         'order',
         'is_published',
         'video_url',
+        'link_prova',
     ];
 
     //Get the course that owns the module.
