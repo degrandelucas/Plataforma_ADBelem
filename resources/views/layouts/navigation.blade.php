@@ -1,5 +1,5 @@
 {{-- Logo/Nome do Site (dentro do nav-wrapper) --}}
-<a href="{{ url('/courses') }}" class="brand-logo hide-on-med-and-down">
+<a href="{{ url('/') }}" class="brand-logo hide-on-med-and-down">
     <img src="{{ asset('img/logo-curso.svg') }}" alt="logo-curso">
 </a>
 

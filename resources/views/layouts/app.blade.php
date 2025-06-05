@@ -70,9 +70,12 @@
         </div>
 
         <footer>
-            <div class="indigo darken-3 white-text"> {{-- Cor mais escura para a seção de copyright --}}
-                <div class="">
-                    <p>Copyright ©<span id="year-copyright"></span> Igreja Evangélica Assembleia de Deus Ministério do Belém</p>
+            <div class="footer-content indigo darken-3 white-text"> {{-- Cor mais escura para a seção de copyright --}}
+                <div>
+                    <p>Copyright © <span id="year-copyright"></span> AD Belém</p>
+                </div>
+                <div>
+                    <p>Dev. <a href="https://lucasdegrande.com" target="_blank"> Lucas Degrande</a></p>
                 </div>
             </div>
         </footer>

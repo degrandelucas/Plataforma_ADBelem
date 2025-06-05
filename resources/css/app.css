@@ -60,5 +60,12 @@ footer{
     position: fixed;
     width: 100%;
     text-align: center;
-    height: 2.5rem;
+    height: 2.3rem;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    font-size: 0.9rem;
 }
