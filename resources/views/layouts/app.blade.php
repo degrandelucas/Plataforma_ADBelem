@@ -9,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        @vite(['resources/css/app.css','resources/js/app.js', 'resources/js/utilities.js'])
+        @vite(['resources/css/app.css','resources/js/app.js','resources/js/utilities.js'])
     </head>
 
     <body class="grey lighten-5">
