@@ -10,6 +10,8 @@
         @vite(['resources/css/app.css','resources/js/app.js'])
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}"> {{-- Estilo personalizado para o site --}}
+
     </head>
 
     <body class="grey lighten-5">
@@ -87,5 +89,7 @@
         </script>
         {{-- Onde os scripts dos componentes (dropdown, sidenav) serão empilhados --}}
         @stack('scripts')
+
+        <script src="{{ asset('js/utilities.js') }}"></script>
     </body>
 </html>
